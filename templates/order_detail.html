@@ -1,3 +1,13 @@
+{% comment %} {
+        "id": 1,
+        "client_name": "Пётр 'Безголовый' Головин",
+        "services": ["Стрижка под 'Горшок'", "Полировка лысины до блеска"],
+        "master_id": 1,
+        "date": "2025-03-20",
+        "status": STATUS_NEW
+    } {% endcomment %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +18,28 @@
 <body>
     <h1>Заказ №{{ order.id }}</h1>
     <p>Клиент: {{ order.client_name }}</p>
-    <p>Статус:  {{ order.status }}</p>
+    
+    {% comment %} Ветвление для статуса {% endcomment %}
+
+    {% if order.status == "новая" %}
+    <p style="color: green;">Статус: новая</p>
+    {% elif order.status == "подтвержденная" %}
+    <p style="color: orange;">Статус: подтвержденная</p>
+    {% elif order.status == "отмененная" %}
+    <p style="color: gray;">Статус: отмененная</p>
+    {% elif order.status == "выполненная" %}
+    <p style="color: green;">Статус:выполненная</p>
+    {% else %}
+    <p style="color: gold;">Статус: выполненная</p>
+    {% endif %}
+
+    <p>Услуги: </p>
+    <ul>
+
+        {% for service in order.services %}
+        <li>{{ service }}</li>
+        {% endfor %}
+    </ul>
 
     <p>Моя переменная: {{ my_variable }}</p>
 </body>
