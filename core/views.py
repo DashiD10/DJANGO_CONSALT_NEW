@@ -49,11 +49,15 @@ class Person:
 
 test_list = ["Алевтина", "Бородач", "Гендальф Серый", "Лысый из Игры Престолов"]
 test_dict = {"master": "Алевтина", "age": 25, "is_master": True}
+
 test_person = Person("Лысый из Игры Престолов", 50)
 
-
 def test_template(request):
+    
     context_data = {
         "variable_1": "Значение переменной 1",
+        "test_list": test_list,
+        "test_dict": test_dict,
+        "test_person": test_person,
     }
     return render(request, "test_template.html", context=context_data)
