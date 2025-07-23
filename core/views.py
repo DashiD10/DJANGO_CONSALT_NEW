@@ -35,4 +35,9 @@ def order_detail(request, order_id):
     else:
         return render(request, "order_detail.html", context=context)
 
-# Create your views here.
+def test_template(request):
+    context_data = {
+        "variable_1": "Значение переменной 1",
+    }
+    return render(request, "test_template.html", context=context_data)
+
