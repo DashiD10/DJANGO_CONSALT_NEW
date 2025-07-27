@@ -100,7 +100,7 @@
             {% elif order.status == "подтвержденная" %}
             "confirmed"
             {% elif order.status == "отмененная" %}
-            "rejected"
+            "cancelled"
             {% elif order.status == "выполненная" %}
             "completed"
             {% endif %}
