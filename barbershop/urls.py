@@ -26,9 +26,12 @@ Including another URLconf
 | `'/orders/<int:order_id>/'` | `views.order_detail` | `./core/order_detail.html` | `order_detail`     |
 """
 
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from core.views import landing, thanks, orders_list, order_detail, orders_list
+from core.views import landing, thanks, orders_list, order_detail
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -36,4 +39,4 @@ urlpatterns = [
     path("thanks/", thanks),
     path("orders/", orders_list),
     path("orders/<int:order_id>/", order_detail),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
