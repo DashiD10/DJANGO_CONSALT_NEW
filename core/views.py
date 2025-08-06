@@ -8,10 +8,8 @@ def landing(request):
 
 def thanks(request):
 
-    context = {
-        "test_var": "Привет из базового шаблона!"
-    }
-    return render(request, "thanks.html", context=context)
+    
+    return render(request, "thanks.html")
 
 
 def orders_list(request):
