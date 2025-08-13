@@ -30,4 +30,4 @@ def menu_items(request):
         {"title": "Заявки", "url": reverse("orders")},
     ]
 
-    return {"menu_items": menu, "menu_staff_items": menu_staff}
+    return {"menu_items": menu, "menu_staff_items": menu_staff}  
