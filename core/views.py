@@ -1,18 +1,27 @@
+# core/views.py
 from django.shortcuts import render, HttpResponse
 from .data import orders
 
 
 def landing(request):
+    """
+    Отвечает за маршрут '/'
+    """
     return HttpResponse("<h1>Главная страница</h1>")
 
 
 def thanks(request):
-
-    
-    return render(request, "thanks.html")
+    """
+    Отвечает за маршрут 'thanks/'
+    """
+    context = {"test_var": "Привет из базового шаблона!"}
+    return render(request, "thanks.html", context=context)
 
 
 def orders_list(request):
+    """
+    Отвечает за маршрут 'orders/'
+    """
     context = {
         "orders": orders,
     }
@@ -30,9 +39,8 @@ def order_detail(request, order_id):
         order = order[0]
         context = {
             "order": order,
-            "my_variable": "Hello, World!",
+            "my_fariable": "Hello, world!",
         }
-
     except IndexError:
         return HttpResponse("<h1>Заказ не найден</h1>", status=404)
 
