@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
-    "debug_toolbar",
+    'debug_toolbar',
     "core",
 ]
 
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = "barbershop.urls"
@@ -112,9 +112,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+# ru-ru 
+LANGUAGE_CODE = "ru-ru"
 
-TIME_ZONE = "UTC"
+# UTC = Greenwich Mean Time
+# Москва - Moscow
+TIME_ZONE = "Europe/Moscow"
 
 USE_I18N = True
 
